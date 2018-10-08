@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Easv.WebShop.Infrastructure.Data.Repositories
 {
-    class WhiskeyRepository
+    public class WhiskeyRepository
     {
     }
 }

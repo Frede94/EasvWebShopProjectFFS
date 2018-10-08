@@ -3,21 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasvWebShopProjectFFS", "EasvWebShopProjectFFS\EasvWebShopProjectFFS.csproj", "{4AF7EDF9-BC23-413D-B6B6-A2AF21CCB2EB}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{96B6EC1C-F34F-47BC-B97B-0A176321404C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{FD80C511-2454-4F10-B87D-49987EFECCB0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{75A072C4-A5C6-4D4C-BD2A-7933CDE0872D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easv.WebShop.Core", "Easv.WebShop.Core\Easv.WebShop.Core.csproj", "{97674894-FB97-4E71-ABDC-C23631FCCFF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Easv.WebShop.Core", "Easv.WebShop.Core\Easv.WebShop.Core.csproj", "{97674894-FB97-4E71-ABDC-C23631FCCFF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easv.WebShop.Core.Entity", "Easv.WebShop.Core.Entity\Easv.WebShop.Core.Entity.csproj", "{B6ADC76C-7602-424C-85DA-F5F24040A46C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Easv.WebShop.Core.Entity", "Easv.WebShop.Core.Entity\Easv.WebShop.Core.Entity.csproj", "{B6ADC76C-7602-424C-85DA-F5F24040A46C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easv.WebShop.Infrastructure.Data", "Easv.WebShop.Infrastructure.Data\Easv.WebShop.Infrastructure.Data.csproj", "{26E4AA12-9DFF-4ECD-9ACB-C346970C2E28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Easv.WebShop.Infrastructure.Data", "Easv.WebShop.Infrastructure.Data\Easv.WebShop.Infrastructure.Data.csproj", "{26E4AA12-9DFF-4ECD-9ACB-C346970C2E28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easv.WebShop.RestAPI", "Easv.WebShop.RestAPI\Easv.WebShop.RestAPI.csproj", "{855DF0FC-AC93-4DC8-89F9-20382D716DA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Easv.WebShop.RestAPI", "Easv.WebShop.RestAPI\Easv.WebShop.RestAPI.csproj", "{855DF0FC-AC93-4DC8-89F9-20382D716DA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easv.WebShop.Test", "Easv.WebShop.Test\Easv.WebShop.Test.csproj", "{570EB922-A1D7-4B52-84D3-276372245A9C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +25,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4AF7EDF9-BC23-413D-B6B6-A2AF21CCB2EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4AF7EDF9-BC23-413D-B6B6-A2AF21CCB2EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4AF7EDF9-BC23-413D-B6B6-A2AF21CCB2EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4AF7EDF9-BC23-413D-B6B6-A2AF21CCB2EB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{97674894-FB97-4E71-ABDC-C23631FCCFF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{97674894-FB97-4E71-ABDC-C23631FCCFF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97674894-FB97-4E71-ABDC-C23631FCCFF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +41,10 @@ Global
 		{855DF0FC-AC93-4DC8-89F9-20382D716DA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{855DF0FC-AC93-4DC8-89F9-20382D716DA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{855DF0FC-AC93-4DC8-89F9-20382D716DA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{570EB922-A1D7-4B52-84D3-276372245A9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{570EB922-A1D7-4B52-84D3-276372245A9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{570EB922-A1D7-4B52-84D3-276372245A9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{570EB922-A1D7-4B52-84D3-276372245A9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
