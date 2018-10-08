@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Easv.WebShop.Core.ApplicationService.IServices;
 using Easv.WebShop.Core.ApplicationService.Services;
 using Easv.WebShop.Core.DomainService;
+using Easv.WebShop.Infrastructure.Data;
 using Easv.WebShop.Infrastructure.Data.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -48,12 +49,21 @@ namespace Easv.WebShop.RestAPI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                using (var scope = app.ApplicationServices.CreateScope())
+                {
+                    var ctx = scope.ServiceProvider.GetService<WebShopContext>();
+                    DBInitializer.SeedDB(ctx);
+                }
             }
             else
             {
-                app.UseExceptionHandler("/Error");
-                app.UseHsts();
+                using (var scope = app.ApplicationServices.CreateScope())
+                {
+                    var ctx = scope.ServiceProvider.GetService<WebShopContext>();
+                    ctx.Database.EnsureCreated();
+                }
             }
+
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

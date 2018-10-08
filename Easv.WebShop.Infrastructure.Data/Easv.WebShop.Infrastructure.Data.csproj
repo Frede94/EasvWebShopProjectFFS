@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Easv.WebShop.Core.Entity\Easv.WebShop.Core.Entity.csproj" />
     <ProjectReference Include="..\Easv.WebShop.Core\Easv.WebShop.Core.csproj" />
   </ItemGroup>
 

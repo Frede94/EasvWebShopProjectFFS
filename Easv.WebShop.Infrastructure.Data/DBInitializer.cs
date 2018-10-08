@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Easv.WebShop.Infrastructure.Data
 {
-    public class Class1
+    class DBInitializer
     {
     }
 }
