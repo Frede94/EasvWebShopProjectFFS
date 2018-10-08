@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Easv.WebShop.Core.DomainService
 {
-    interface IWhiskeyRepository
+    public interface IWhiskeyRepository
     {
     }
 }

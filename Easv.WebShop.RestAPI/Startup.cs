@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Easv.WebShop.Core.ApplicationService.IServices;
 using Easv.WebShop.Core.ApplicationService.Services;
+using Easv.WebShop.Core.DomainService;
+using Easv.WebShop.Infrastructure.Data.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -36,6 +38,7 @@ namespace Easv.WebShop.RestAPI
             });
 
             services.AddScoped<IWhiskeyService, WhiskeyService>();
+            services.AddScoped<IWhiskeyRepository, WhiskeyRepository>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

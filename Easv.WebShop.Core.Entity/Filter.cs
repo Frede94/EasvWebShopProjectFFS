@@ -4,7 +4,10 @@ using System.Text;
 
 namespace Easv.WebShop.Core.Entity
 {
-    class Filter
+    public class Filter
     {
+        public int ItemsPrPage { get; set; }
+        public int CurrentPage { get; set; }
+        //public string TypeName { get; set; }
     }
 }
