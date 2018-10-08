@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasvWebShopProjectFFS", "EasvWebShopProjectFFS\EasvWebShopProjectFFS.csproj", "{4AF7EDF9-BC23-413D-B6B6-A2AF21CCB2EB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{96B6EC1C-F34F-47BC-B97B-0A176321404C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{FD80C511-2454-4F10-B87D-49987EFECCB0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{75A072C4-A5C6-4D4C-BD2A-7933CDE0872D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4AF7EDF9-BC23-413D-B6B6-A2AF21CCB2EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AF7EDF9-BC23-413D-B6B6-A2AF21CCB2EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AF7EDF9-BC23-413D-B6B6-A2AF21CCB2EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AF7EDF9-BC23-413D-B6B6-A2AF21CCB2EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {031772AC-383E-4837-8A22-2507F620B833}
+	EndGlobalSection
+EndGlobal
