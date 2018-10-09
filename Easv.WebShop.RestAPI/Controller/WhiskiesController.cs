@@ -11,11 +11,11 @@ namespace Easv.WebShop.RestAPI.Controller
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class WhiskeyController : ControllerBase
+    public class WhiskiesController : ControllerBase
     {
         private readonly IWhiskeyService _whiskeyService;
 
-        public WhiskeyController(IWhiskeyService whiskeyService)
+        public WhiskiesController(IWhiskeyService whiskeyService)
         {
             _whiskeyService = whiskeyService;
         }

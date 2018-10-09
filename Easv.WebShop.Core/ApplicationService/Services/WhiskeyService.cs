@@ -39,7 +39,7 @@ namespace Easv.WebShop.Core.ApplicationService.Services
 
         public Whiskey RetrieveById(int id)
         {
-            return _whiskeyRepo.Delete(id);
+            return _whiskeyRepo.RetrieveById(id);
         }
 
         public Whiskey Update(Whiskey whiskey)
