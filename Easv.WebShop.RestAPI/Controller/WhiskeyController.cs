@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Easv.WebShop.Core.ApplicationService.IServices;
+using Easv.WebShop.Core.Entity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,36 +13,90 @@ namespace Easv.WebShop.RestAPI.Controller
     [ApiController]
     public class WhiskeyController : ControllerBase
     {
+        private readonly IWhiskeyService _whiskeyService;
+
+        public WhiskeyController(IWhiskeyService whiskeyService)
+        {
+            _whiskeyService = whiskeyService;
+        }
         // GET: api/Whiskey
         [HttpGet]
-        public IEnumerable<string> Get()
+        public ActionResult<IEnumerable<Whiskey>> Get([FromQuery] Filter filter)
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                if(filter.CurrentPage != 0 && filter.ItemsPrPage != 0)
+                {
+                    return Ok(_whiskeyService.ReadAllFiltered(filter));
+                }
+                else
+                {
+                    return Ok(_whiskeyService.ReadAll());
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET: api/Whiskey/5
         [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        public ActionResult<Whiskey> Get(int id)
         {
-            return "value";
+            try
+            {
+                return Ok(_whiskeyService.RetrieveById(id));
+        
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // POST: api/Whiskey
         [HttpPost]
-        public void Post([FromBody] string value)
+        public ActionResult<Whiskey> Post([FromBody] Whiskey whiskey)
         {
+            try
+            {
+                return Ok(_whiskeyService.CreateWhiskey(whiskey));
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         // PUT: api/Whiskey/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public ActionResult<Whiskey> Put(int id, [FromBody] Whiskey whiskey)
         {
+            try
+            {
+                whiskey.Id = id;
+                return Ok(_whiskeyService.Update(whiskey));
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult<Whiskey> Delete(int id)
         {
+            try
+            {
+                return _whiskeyService.Delete(id);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
