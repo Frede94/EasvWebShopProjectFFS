@@ -44,12 +44,16 @@ namespace Easv.WebShop.Infrastructure.Data.Repositories
 
         public Whiskey RetrieveById(int id)
         {
-            throw new NotImplementedException();
+            return _ctx.Whiskeys
+                .Include(w => w.WhiskeyType)
+                .FirstOrDefault(c => c.Id == id);
         }
 
         public Whiskey Update(Whiskey whiskey)
         {
-            throw new NotImplementedException();
+            _ctx.Attach(whiskey).State = EntityState.Modified;
+            _ctx.SaveChanges();
+            return whiskey;
         }
     }
 }
