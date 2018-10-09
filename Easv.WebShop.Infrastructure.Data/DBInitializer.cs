@@ -7,7 +7,7 @@ namespace Easv.WebShop.Infrastructure.Data
 {
     public class DBInitializer
     {
-        public static void SeedDb(WebShopContext ctx)
+        public static void SeedDB(WebShopContext ctx)
         {
             ctx.Database.EnsureDeleted();
             ctx.Database.EnsureCreated();
