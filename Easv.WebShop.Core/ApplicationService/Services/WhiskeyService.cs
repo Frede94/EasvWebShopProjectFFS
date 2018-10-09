@@ -24,7 +24,7 @@ namespace Easv.WebShop.Core.ApplicationService.Services
 
         public Whiskey Delete(int id)
         {
-            throw new NotImplementedException();
+            return _whiskeyRepo.Delete(id);
         }
 
         public List<Whiskey> ReadAll()
@@ -44,7 +44,8 @@ namespace Easv.WebShop.Core.ApplicationService.Services
 
         public Whiskey Update(Whiskey whiskey)
         {
-            throw new NotImplementedException();
+            return _whiskeyRepo.Update(whiskey);
+
         }
     }
 }
