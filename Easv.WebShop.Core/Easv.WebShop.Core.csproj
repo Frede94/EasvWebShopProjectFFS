@@ -5,12 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ApplicationService\IServices\" />
-    <Folder Include="ApplicationService\Services\" />
-    <Folder Include="DomainService\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Easv.WebShop.Core.Entity\Easv.WebShop.Core.Entity.csproj" />
   </ItemGroup>
 

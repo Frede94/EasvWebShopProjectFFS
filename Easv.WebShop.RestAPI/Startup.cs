@@ -51,9 +51,13 @@ namespace Easv.WebShop.RestAPI
             services.AddScoped<IWhiskeyService, WhiskeyService>();
             services.AddScoped<IWhiskeyRepository, WhiskeyRepository>();
 
+            services.AddScoped<IWhiskeyTypeService, WhiskeyTypeService>();
+            services.AddScoped<IWhiskeyTypeRepository, WhiskeyTypeRepository>();
+
             services.AddMvc().AddJsonOptions(options =>
             {
-                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                options.SerializerSettings.ReferenceLoopHandling 
+                    = ReferenceLoopHandling.Ignore;
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

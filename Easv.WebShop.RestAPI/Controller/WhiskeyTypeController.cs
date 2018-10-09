@@ -11,27 +11,27 @@ namespace Easv.WebShop.RestAPI.Controller
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class WhiskiesController : ControllerBase
+    public class WhiskeyTypesController : ControllerBase
     {
-        private readonly IWhiskeyService _whiskeyService;
+        private readonly IWhiskeyTypeService _wtService;
 
-        public WhiskiesController(IWhiskeyService whiskeyService)
+        public WhiskeyTypesController(IWhiskeyTypeService whiskeyTypeService)
         {
-            _whiskeyService = whiskeyService;
+            _wtService = whiskeyTypeService;
         }
-        // GET: api/Whiskey
+        // GET: api/WhiskeyType
         [HttpGet]
-        public ActionResult<IEnumerable<Whiskey>> Get([FromQuery] Filter filter)
+        public ActionResult<IEnumerable<WhiskeyType>> Get([FromQuery] Filter filter)        
         {
             try
             {
-                if(filter.CurrentPage != 0 && filter.ItemsPrPage != 0)
+                if (filter.CurrentPage != 0 && filter.ItemsPrPage != 0)
                 {
-                    return Ok(_whiskeyService.ReadAllFiltered(filter));
+                    return Ok(_wtService.ReadAllFiltered(filter));
                 }
                 else
                 {
-                    return Ok(_whiskeyService.ReadAll());
+                    return Ok(_wtService.ReadAll());
                 }
             }
             catch (Exception ex)
@@ -40,58 +40,58 @@ namespace Easv.WebShop.RestAPI.Controller
             }
         }
 
-        // GET: api/Whiskey/5
-        [HttpGet("{id}")] //, Name = "Get"
-        public ActionResult<Whiskey> Get(int id)
+        // GET: api/WhiskeyType/5
+        [HttpGet("{id}", Name = "Get")]
+        public ActionResult<WhiskeyType> Get(int id)
         {
             try
             {
-                return Ok(_whiskeyService.RetrieveById(id));
-        
+                return Ok(_wtService.RetrieveById(id));
             }
             catch (Exception ex)
             {
+
+                return BadRequest(ex.Message);
+            }             
+        }
+
+        // POST: api/WhiskeyType
+        [HttpPost]
+        public ActionResult<WhiskeyType> Post([FromBody] WhiskeyType whiskeyType)
+        {
+            try
+            {
+                return Ok(_wtService.CreateWhiskeyType(whiskeyType));
+            }
+            catch (Exception ex)
+            {
+
                 return BadRequest(ex.Message);
             }
         }
 
-        // POST: api/Whiskey
-        [HttpPost]
-        public ActionResult<Whiskey> Post([FromBody] Whiskey whiskey)
-        {
-            try
-            {
-                return Ok(_whiskeyService.CreateWhiskey(whiskey));
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        // PUT: api/Whiskey/5
+        // PUT: api/WhiskeyType/5
         [HttpPut("{id}")]
-        public ActionResult<Whiskey> Put(int id, [FromBody] Whiskey whiskey)
+        public ActionResult<WhiskeyType> Put(int id, [FromBody] WhiskeyType whiskeyType)
         {
             try
             {
-                whiskey.Id = id;
-                return Ok(_whiskeyService.Update(whiskey));
+                whiskeyType.Id = id;
+                return Ok(_wtService.Update(whiskeyType));
             }
             catch (Exception ex)
             {
-
                 return BadRequest(ex.Message);
             }
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public ActionResult<Whiskey> Delete(int id)
+        public ActionResult<WhiskeyType> Delete(int id)
         {
             try
             {
-                return _whiskeyService.Delete(id);
+                return Ok(_wtService.Delete(id));
             }
             catch (Exception ex)
             {
