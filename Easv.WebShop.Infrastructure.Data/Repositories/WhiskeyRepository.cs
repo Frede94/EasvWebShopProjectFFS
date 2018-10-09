@@ -1,31 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Easv.WebShop.Core.DomainService;
 using Easv.WebShop.Core.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace Easv.WebShop.Infrastructure.Data.Repositories
 {
     public class WhiskeyRepository : IWhiskeyRepository
     {
+        readonly WebShopContext _ctx;
+
+        public WhiskeyRepository(WebShopContext ctx)
+        {
+            _ctx = ctx;
+        }
+
         public Whiskey CreateWhiskey(Whiskey whiskey)
         {
-            throw new NotImplementedException();
+            _ctx.Attach(whiskey).State = EntityState.Added;
+            _ctx.SaveChanges();
+            return whiskey;
         }
 
         public Whiskey Delete(int id)
         {
-            throw new NotImplementedException();
+            var whiskeyRemove = _ctx.Remove(new Whiskey() { Id = id }).Entity;
+            _ctx.SaveChanges();
+            return whiskeyRemove;
         }
 
-        public List<Whiskey> ReadAll()
+        public IEnumerable<Whiskey> ReadAll()
         {
-            throw new NotImplementedException();
+            return _ctx.Whiskeys;
         }
 
-        public List<Whiskey> ReadAllFiltered(Filter filter)
+        public IEnumerable<Whiskey> ReadAllFiltered(Filter filter)
         {
-            throw new NotImplementedException();
+            return _ctx.Whiskeys.Skip((filter.CurrentPage - 1) * filter.ItemsPrPage).Take(filter.ItemsPrPage);
+
         }
 
         public Whiskey RetrieveById(int id)

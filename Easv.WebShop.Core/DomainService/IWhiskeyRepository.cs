@@ -8,8 +8,8 @@ namespace Easv.WebShop.Core.DomainService
     public interface IWhiskeyRepository
     {
         Whiskey CreateWhiskey(Whiskey whiskey);
-        List<Whiskey> ReadAll();
-        List<Whiskey> ReadAllFiltered(Filter filter);
+        IEnumerable<Whiskey> ReadAll();
+        IEnumerable<Whiskey> ReadAllFiltered(Filter filter);
         Whiskey RetrieveById(int id);
         Whiskey Delete(int id);
         Whiskey Update(Whiskey whiskey);

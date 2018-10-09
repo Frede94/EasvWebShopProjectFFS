@@ -1,16 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Easv.WebShop.Core.ApplicationService.IServices;
+using Easv.WebShop.Core.DomainService;
 using Easv.WebShop.Core.Entity;
 
 namespace Easv.WebShop.Core.ApplicationService.Services
 {
     public class WhiskeyService : IWhiskeyService
     {
+        readonly IWhiskeyRepository _whiskeyRepo;
+            
+        public WhiskeyService (IWhiskeyRepository whiskeyRepo)
+        {
+            _whiskeyRepo = whiskeyRepo;
+        }
+
         public Whiskey CreateWhiskey(Whiskey whiskey)
         {
-            throw new NotImplementedException();
+            return _whiskeyRepo.CreateWhiskey(whiskey);
         }
 
         public Whiskey Delete(int id)
@@ -20,17 +29,17 @@ namespace Easv.WebShop.Core.ApplicationService.Services
 
         public List<Whiskey> ReadAll()
         {
-            throw new NotImplementedException();
+            return _whiskeyRepo.ReadAll().ToList();
         }
 
         public List<Whiskey> ReadAllFiltered(Filter filter)
         {
-            throw new NotImplementedException();
+            return _whiskeyRepo.ReadAllFiltered(filter).ToList();
         }
 
         public Whiskey RetrieveById(int id)
         {
-            throw new NotImplementedException();
+            return _whiskeyRepo.Delete(id);
         }
 
         public Whiskey Update(Whiskey whiskey)
