@@ -62,7 +62,10 @@ namespace Easv.WebShop.RestAPI
                     var ctx = scope.ServiceProvider.GetService<WebShopContext>();
                     ctx.Database.EnsureCreated();
                 }
+
+                app.UseHsts();
             }
+
 
 
             app.UseHttpsRedirection();
@@ -72,4 +75,5 @@ namespace Easv.WebShop.RestAPI
             app.UseMvc();
         }
     }
+
 }

@@ -4,7 +4,16 @@ using System.Text;
 
 namespace Easv.WebShop.Infrastructure.Data
 {
-    class DBInitializer
+    public class DBInitializer
     {
+        public static void SeedDb(WebShopContext ctx)
+        {
+            ctx.Database.EnsureDeleted();
+            ctx.Database.EnsureCreated();
+
+
+
+            ctx.SaveChanges();
+        }
     }
 }
