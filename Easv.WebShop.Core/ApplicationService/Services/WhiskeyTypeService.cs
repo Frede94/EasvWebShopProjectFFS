@@ -19,7 +19,14 @@ namespace Easv.WebShop.Core.ApplicationService.Services
 
         public WhiskeyType CreateWhiskeyType(WhiskeyType whiskeyType)
         {
-            return _wTypeRepo.CreateWhiskeyType(whiskeyType);
+            if(string.IsNullOrEmpty(whiskeyType.TypeName))
+            {
+                throw new Exception("The Whiskey type must be defined");
+            }
+            else
+            {
+                return _wTypeRepo.CreateWhiskeyType(whiskeyType);
+            }
         }
 
         public List<WhiskeyType> ReadAll()

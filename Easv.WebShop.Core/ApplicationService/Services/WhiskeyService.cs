@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using Easv.WebShop.Core.ApplicationService.IServices;
@@ -19,6 +20,17 @@ namespace Easv.WebShop.Core.ApplicationService.Services
 
         public Whiskey CreateWhiskey(Whiskey whiskey)
         {
+            if (string.IsNullOrEmpty(whiskey.WhiskeyName))                
+                throw new Exception("There must be a Whiskey name assigned to the whiskey for creation");
+            if (whiskey.WhiskeyType == null || whiskey.WhiskeyType.Id <= 0)
+                throw new Exception("There must be a Whiskey type assigned to the whiskey for creation");
+            if (string.IsNullOrEmpty(whiskey.Description))
+                throw new Exception("There must be a Whiskey description assigned to the whiskey for creation");
+            if (whiskey.Price <= 0)
+                throw new Exception("There must be a valid Whiskey price assigned to the whiskey for creation");
+            if (whiskey.Year == 0)
+                throw new Exception("There must be a Whiskey year assigned to the whiskey for creation");           
+           
             return _whiskeyRepo.CreateWhiskey(whiskey);
         }
 
