@@ -33,7 +33,9 @@ namespace Easv.WebShop.Infrastructure.Data.Repositories
 
         public IEnumerable<Whiskey> ReadAll()
         {
-            return _ctx.Whiskeys;
+            return _ctx.Whiskeys
+            .Include(w => w.WhiskeyType);
+            
         }
 
         public IEnumerable<Whiskey> ReadAllFiltered(Filter filter)
