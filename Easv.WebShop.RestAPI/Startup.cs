@@ -80,7 +80,6 @@ namespace Easv.WebShop.RestAPI
                 using (var scope = app.ApplicationServices.CreateScope())
                 {
                     var ctx = scope.ServiceProvider.GetService<WebShopContext>();
-                    ctx.Database.EnsureDeleted();
                     ctx.Database.EnsureCreated();
                 }
 
