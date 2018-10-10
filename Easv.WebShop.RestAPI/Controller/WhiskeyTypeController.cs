@@ -85,6 +85,21 @@ namespace Easv.WebShop.RestAPI.Controller
             }
         }
 
+        //Patch: api/whiskeyType/5
+        [HttpPatch("{id}")]
+        public ActionResult<WhiskeyType> Patch(int id, [FromBody]WhiskeyType whiskeyType)
+        {
+            try
+            {
+                whiskeyType.Id = id;
+                return Ok(_wtService.Update(whiskeyType));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
         public ActionResult<WhiskeyType> Delete(int id)
