@@ -63,9 +63,9 @@ namespace Easv.WebShop.RestAPI.Controller
             {
                 return Ok(_whiskeyService.CreateWhiskey(whiskey));
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                return BadRequest(ex.Message);
             }
         }
 
